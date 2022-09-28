@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import APIS from './Api.jsx';
+import MainPage from './MainPage';
 
-function App() {
+export default function App() {
+  const [data] = useState(APIS);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <section className='main-div'>
+      <h1>REACT QUESTIONS</h1>
+      {data.map((currElem) => {
+        const { id } = currElem;
+        return <MainPage key={id} {...currElem} />
+      })}
+    </section>
+  )
 }
-
-export default App;
