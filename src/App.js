@@ -8,7 +8,7 @@ export default function App() {
   const [data] = useState(APIS);
   return (
     <section className='main-div'>
-      <h1>REACT QUESTIONS</h1>
+      <h1>REACT INTERVIEW QUESTIONS</h1>
       {data.map((currElem) => {
         const { id } = currElem;
         return <MainPage key={id} {...currElem} />
